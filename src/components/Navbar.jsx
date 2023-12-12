@@ -5,11 +5,13 @@ import {
   Badge,
   Box,
   InputBase,
+  Menu,
+  MenuItem,
   Toolbar,
   Typography,
   styled,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -42,6 +44,8 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -80,9 +84,12 @@ const Navbar = () => {
               height: 30,
             }}
             src="https://fastly.picsum.photos/id/57/2448/3264.jpg?hmac=ewraXYesC6HuSEAJsg3Q80bXd1GyJTxekI05Xt9YjfQ"
+            onClick={e => setOpen(true)}
           />
         </IconContainer>
-        <UserBox>
+        <UserBox
+          onClick={e => setOpen(true)}
+        >
           <Avatar
             sx={{
               width: 30,
@@ -95,6 +102,24 @@ const Navbar = () => {
           >John Doe</Typography>
         </UserBox>
       </StyledToolbar>
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        open={open}
+        onClose={e => setOpen(false)}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right'
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right'
+        }}
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My Account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 };
