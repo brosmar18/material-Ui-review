@@ -1,8 +1,23 @@
 import { Button, Typography } from "@mui/material";
-
 import { Add, Settings } from '@mui/icons-material';
+import { styled } from '@mui/material/styles';
 
 function App() {
+
+  const BlueButton = styled(Button)({
+    backgroundColor: "skyblue",
+    color: "#888",
+    margin: 5,
+    "&:hover": {
+      backgroundColor: "lightblue"
+    },
+    "&:disabled": {
+      backgroundColor: "gray",
+      color: "white"
+    }
+  });
+
+
   return (
     <div className="App">
       <Button
@@ -11,7 +26,7 @@ function App() {
         Text
       </Button>
       <Button
-      startIcon={<Settings />}
+        startIcon={<Settings />}
         variant="text"
       >Settings</Button>
       <Button
@@ -30,22 +45,8 @@ function App() {
       >
         It uses h1 style but it's a p tag
       </Typography>
-      <Button
-        variant="contained"
-        disabled
-        sx={{
-          backgroundColor:"skyblue",
-          color:"#888",
-          margin:5,
-          "&:hover":{
-            backgroundColor:"lightblue"
-          },
-          "&:disabled":{
-            backgroundColor:"gray",
-            color:"white"
-          }
-        }}
-      >My Unique Button</Button>
+      <BlueButton>My Blue Button</BlueButton>
+      <BlueButton>Another Button</BlueButton>
     </div>
   );
 }
