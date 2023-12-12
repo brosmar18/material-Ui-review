@@ -4,8 +4,8 @@ import { styled } from '@mui/material/styles';
 
 function App() {
 
-  const BlueButton = styled(Button)({
-    backgroundColor: "skyblue",
+  const BlueButton = styled(Button)(({theme}) => ({
+    backgroundColor: theme.palette.otherColor.main,
     color: "#888",
     margin: 5,
     "&:hover": {
@@ -15,7 +15,7 @@ function App() {
       backgroundColor: "gray",
       color: "white"
     }
-  });
+  }));
 
 
   return (
@@ -27,7 +27,8 @@ function App() {
       </Button>
       <Button
         startIcon={<Settings />}
-        variant="text"
+        variant="contained"
+        color="otherColor"
       >Settings</Button>
       <Button
         startIcon={<Add />}
