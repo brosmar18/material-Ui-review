@@ -31,7 +31,8 @@ const IconContainer = styled(Box)(({ theme }) => ({
   alignItems: "center",
   [theme.breakpoints.up("sm")]: {
     display: "flex",
-  }
+  },
+  cursor: "pointer"
 }));
 
 const UserBox = styled(Box)(({ theme }) => ({
@@ -40,7 +41,8 @@ const UserBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
   [theme.breakpoints.up("sm")]: {
     display: "none",
-  }
+  },
+  cursor: "pointer"
 }));
 
 const Navbar = () => {
